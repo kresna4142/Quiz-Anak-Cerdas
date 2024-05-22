@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Tema 1</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="quiz" name="keywords">
+    <meta content="quiz" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body onload="NextQuestion(0)">
+     <!-- Navbar Start -->
+     <div class="container-fluid bg-light position-relative shadow">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+            <a href="" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+                <i><img src="img/icons8-quiz-48.png" alt=""></i>
+                <span class="text-primary">Quiz Anak Cerdas</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                </div>
+                <a href="index.html" class="btn btn-primary px-4">Home</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+    <main>
+        <!-- creating a modal for when quiz ends -->
+        <div class="modal-container" id="score-modal">
+          
+            <div class="modal-content-container">
+              
+                <h1>Selamat, Quiz Selesai.</h1>
+              
+                <div class="grade-details">
+                    <p>Jawab : 5</p>
+                    <p>Jawaban Salah : <span id="wrong-answers"></span></p>
+                    <p>Jawaban Benar : <span id="right-answers"></span></p>
+                    <p>Nilai : <span id="grade-percentage"></span>%</p>
+                    <p ><span id="remarks"></span></p>
+                </div>
+                <div class="modal-button-container">
+                    <button class="btncls" href="jawaban_quiz1.html" onclick="closeScoreModal()">Continue</button>
+                </div>
+              
+            </div>
+        </div>
+        <script>
+            document.querySelector('.btncls').addEventListener('click', () => {
+                window.location.href = 'jawaban_quiz1.html';
+            });
+        </script>
+
+        <div class="game-quiz-container">
+          
+            <div class="game-details-container">
+                <h1>Score : <span id="player-score"></span> / 5</h1>
+                <h1> Question : <span id="question-number"></span> / 5</h1>
+            </div>
+
+            <div class="game-question-container">
+                <h1 id="display-question"></h1>
+            </div>
+
+            <div class="game-options-container">
+              
+               <div class="modal-container" id="option-modal">
+                 
+                    <div class="modal-content-container">
+                         <h1>Silahkan Pilih Jawaban</h1>
+                      
+                         <div class="modal-button-container">
+                            <button onclick="closeOptionModal()">Continue</button>
+                        </div>
+                      
+                    </div>
+                 
+               </div>
+              
+                <span>
+                    <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                    <label for="option-one" class="option" id="option-one-label"></label>
+                </span>
+              
+
+                <span>
+                    <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                    <label for="option-two" class="option" id="option-two-label"></label>
+                </span>
+              
+
+                <span>
+                    <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                    <label for="option-three" class="option" id="option-three-label"></label>
+                </span>
+              
+
+                <span>
+                    <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                    <label for="option-four" class="option" id="option-four-label"></label>
+                </span>
+
+
+            </div>
+
+            <div class="next-button-container">
+                <button onclick="handleNextQuestion()">Next Question</button>
+            </div>
+
+        </div>
+    </main>
+    <script src="js/index.js"></script>
+</body>
+</html>
